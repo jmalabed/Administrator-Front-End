@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# The Office Culture
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## General Assembly Capstone Project
 
-## Available Scripts
+### Link to GitHub Repositories:
 
-In the project directory, you can run:
+- Front End:
+- Back End:
 
-### `npm start`
+###Summary
+The Office Culture is a hotdesk administration software designed to integrate COVID precautionary protocol in a transparent and anonymous way.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+When visiting an office, you are likely going in to meet people at the office rather than work in isolation. Because the work environment is so fluid since COVID-19, hotdesking is another common workplace norm. A typical visit to the office looks like this:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+You are first greeted in the lobby by an admin that will typically sign you in to the building for security and Covid screening questions that are commonplace in today's work environment.
 
-### `npm test`
+Next, you will migrate to an available (and clean) desk that you can work from. From there, you can make yourself at home while waiting for your meeting to get started.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You attend your meeting, and then head home before work traffic picks up in the afternoon.
 
-### `npm run build`
+The Office Culture handles all of this typical administrative functionality, but also integrates COVID-19 notifications to people that were present in the building at the same time as the reported person was.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Index
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Heading Name](#heading-name)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Technologies
 
-### `npm run eject`
+- MERN Stack: Mongo, Express, React, and Node
+- HTML, CSS, and Javascript
+- Deployed to Heroku and Surge
+- React - Bootstrap
+- Dotenv
+- Mailchimp
+- MongoAtlas
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## User Stories
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- A business will be able to view the product capabilities and sign up
+- A business will be able to manage their staff, hotdesks, and conference room resources.
+- A guest visitor will be able to sign in to the building through a welcome page that collects email, name, and person they are visiting.
+- The guest visitor will be assigned to a hotdesk and conference room to meet with their host.
+- The guest will have access to an email link to self-report COVID infections to the company that theye have visited.
+- The company can also report internal COVID-19 infections through the company portal.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Main Objectives
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Report COVID-19 transparently
+- Handle hotdesk and conference room scheduling
+- Allow a business to keep track of their office resources
 
-## Learn More
+## Link to Application
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Site Graphics
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Wireframes
 
-### Code Splitting
+![Image of Wireframes](url)
+[Link to full wireframe] (whimsical url)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Entity Relationship Diagram
 
-### Analyzing the Bundle Size
+![Image of ERD](linktoerd)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future Work
