@@ -5,6 +5,9 @@ import Home from "./components/Home";
 import Navigation from "./components/Navigation";
 import Register from "./components/Register";
 import Business from "./components/Business";
+import EmployeeAdd from "./components/EmployeeAdd";
+import HotdeskAdd from "./components/HotdeskAdd";
+import ConferenceAdd from "./components/ConferenceAdd";
 
 function App() {
   return (
@@ -26,6 +29,22 @@ function App() {
           path="/business/:id"
           render={(routerProps) => <Business {...routerProps} />}
         />
+        <Route
+          exact
+          path="/business/:id/employee/add"
+          render={(routerProps) => <EmployeeAdd {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/business/:id/hotdesk/add"
+          render={(routerProps) => <HotdeskAdd {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/business/:id/conference/add"
+          render={(routerProps) => <ConferenceAdd {...routerProps} />}
+        />
+        <Route path="/" />
       </Switch>
     </div>
   );
