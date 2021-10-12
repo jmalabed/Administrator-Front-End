@@ -1,38 +1,31 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { setBisToken, clearBisToken } from "../utility/authToken";
-
-const Register = (props) => {
+const Login = (props) => {
   const [input, setInput] = useState({
     name: "",
     pass: "",
   });
-
   const [currentBis, setCurrentBis] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const registerBis = async (bis) => {
+  const login = async (data) => {
     try {
       const configs = {
         method: "POST",
-        body: JSON.stringify(bis),
+        body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
         },
       };
-
-      const newBis = await fetch(
-        "http://localhost:9000/auth/register",
+      const loggedBis = await fetch(
+        "http://localhost:9000/auth/login",
         configs
       );
-      const parsedBis = await newBis.json();
+      const parsedBis = await loggedBis.json();
       console.log(parsedBis);
-      // Log user that just registered in, setting token and auth for access to site.
       setBisToken(parsedBis.token);
-      setCurrentBis(parsedBis.name);
-      setIsAuthenticated(parsedBis.isLoggedIn);
-
-      // return parsed bis for use with submitting form function
+      setCurrentBis(parsedBis.user);
+      setIsAuthenticated(true);
       return parsedBis;
     } catch (err) {
       console.log(err);
@@ -43,17 +36,19 @@ const Register = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const createdBis = await registerBis(input);
-    if (createdBis) {
-      const bisId = createdBis.user._id;
+    const loggedBis = await login(input);
+    console.log(loggedBis);
+    if (loggedBis.bis._id) {
+      const bisId = loggedBis.bis._id;
       console.log(bisId);
-      props.history.push(`/business/${bisId}`);
+      if (loggedBis) {
+        props.history.push(`/business/${bisId}`);
+      } else {
+        alert("Account not recognized.");
+        props.history.push("/login");
+      }
     }
   };
-
-  useEffect(() => {
-    console.log(input);
-  }, [input]);
 
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -61,7 +56,7 @@ const Register = (props) => {
   };
   return (
     <>
-      <h1>Register</h1>
+      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Business Name:</label>
         <br />
@@ -74,7 +69,7 @@ const Register = (props) => {
         />
         <br />
         <br />
-        <label htmlFor="pass">Create password:</label>
+        <label htmlFor="pass">Password:</label>
         <br />
         <input
           type="password"
@@ -90,4 +85,4 @@ const Register = (props) => {
     </>
   );
 };
-export default Register;
+export default Login;

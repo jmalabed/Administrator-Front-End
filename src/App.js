@@ -8,6 +8,9 @@ import Business from "./components/Business";
 import EmployeeAdd from "./components/EmployeeAdd";
 import HotdeskAdd from "./components/HotdeskAdd";
 import ConferenceAdd from "./components/ConferenceAdd";
+import Login from "./components/Login";
+import Footer from "./components/Footer";
+import Default from "./components/Default";
 
 function App() {
   return (
@@ -23,6 +26,11 @@ function App() {
           exact
           path="/register"
           render={(routerProps) => <Register {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/login"
+          render={(routerProps) => <Login {...routerProps} />}
         />
         <Route
           exact
@@ -44,8 +52,12 @@ function App() {
           path="/business/:id/conference/add"
           render={(routerProps) => <ConferenceAdd {...routerProps} />}
         />
-        <Route path="/" />
+        <Route
+          path="/"
+          render={(routerProps) => <Default {...routerProps} />}
+        />
       </Switch>
+      <Footer />
     </div>
   );
 }
