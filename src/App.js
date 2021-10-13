@@ -1,16 +1,18 @@
 import "./App.css";
 import { Route, Link, Switch, withRouter, useHistory } from "react-router-dom";
 
-import Home from "./components/Home";
+import Home from "./components/pages/Home";
 import Navigation from "./components/Navigation";
-import Register from "./components/Register";
-import Business from "./components/Business";
-import EmployeeAdd from "./components/EmployeeAdd";
-import HotdeskAdd from "./components/HotdeskAdd";
-import ConferenceAdd from "./components/ConferenceAdd";
-import Login from "./components/Login";
+import Register from "./components/pages/Register";
+import Business from "./components/pages/Business";
+import EmployeeAdd from "./components/pages/EmployeeAdd";
+import HotdeskAdd from "./components/pages/HotdeskAdd";
+import ConferenceAdd from "./components/pages/ConferenceAdd";
+import Login from "./components/pages/Login";
+import Checkin from "./components/pages/Checkin";
+import Notify from "./components/pages/Notify";
 import Footer from "./components/Footer";
-import Default from "./components/Default";
+import Default from "./components/pages/Default";
 
 function App() {
   return (
@@ -21,6 +23,16 @@ function App() {
           exact
           path="/home"
           render={(routerProps) => <Home {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/business/:id/notify"
+          render={(routerProps) => <Notify {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/:id/checkin"
+          render={(routerProps) => <Checkin {...routerProps} />}
         />
         <Route
           exact

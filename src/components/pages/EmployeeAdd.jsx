@@ -70,6 +70,7 @@ const EmployeeAdd = (props) => {
         <br />
         <input type="submit" value="Add"></input>
       </form>
+      <a href={`/business/${props.match.params.id}`}>Return to business</a>
     </>
   );
 };

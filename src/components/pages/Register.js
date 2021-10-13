@@ -1,31 +1,38 @@
 import { useState, useEffect } from "react";
-import { setBisToken, clearBisToken } from "../utility/authToken";
-const Login = (props) => {
+import { useParams } from "react-router-dom";
+import { setBisToken, clearBisToken } from "../../utility/authToken";
+
+const Register = (props) => {
   const [input, setInput] = useState({
     name: "",
     pass: "",
   });
+
   const [currentBis, setCurrentBis] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const login = async (data) => {
+  const registerBis = async (bis) => {
     try {
       const configs = {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify(bis),
         headers: {
           "Content-Type": "application/json",
         },
       };
-      const loggedBis = await fetch(
-        "http://localhost:9000/auth/login",
+
+      const newBis = await fetch(
+        "http://localhost:9000/auth/register",
         configs
       );
-      const parsedBis = await loggedBis.json();
+      const parsedBis = await newBis.json();
       console.log(parsedBis);
+      // Log user that just registered in, setting token and auth for access to site.
       setBisToken(parsedBis.token);
-      setCurrentBis(parsedBis.user);
-      setIsAuthenticated(true);
+      setCurrentBis(parsedBis.name);
+      setIsAuthenticated(parsedBis.isLoggedIn);
+
+      // return parsed bis for use with submitting form function
       return parsedBis;
     } catch (err) {
       console.log(err);
@@ -36,19 +43,17 @@ const Login = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const loggedBis = await login(input);
-    console.log(loggedBis);
-    if (loggedBis.bis._id) {
-      const bisId = loggedBis.bis._id;
+    const createdBis = await registerBis(input);
+    if (createdBis) {
+      const bisId = createdBis.user._id;
       console.log(bisId);
-      if (loggedBis) {
-        props.history.push(`/business/${bisId}`);
-      } else {
-        alert("Account not recognized.");
-        props.history.push("/login");
-      }
+      props.history.push(`/business/${bisId}`);
     }
   };
+
+  useEffect(() => {
+    console.log(input);
+  }, [input]);
 
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -56,7 +61,7 @@ const Login = (props) => {
   };
   return (
     <>
-      <h1>Login</h1>
+      <h1>Register</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Business Name:</label>
         <br />
@@ -69,7 +74,7 @@ const Login = (props) => {
         />
         <br />
         <br />
-        <label htmlFor="pass">Password:</label>
+        <label htmlFor="pass">Create password:</label>
         <br />
         <input
           type="password"
@@ -85,4 +90,4 @@ const Login = (props) => {
     </>
   );
 };
-export default Login;
+export default Register;
