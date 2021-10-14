@@ -7,6 +7,7 @@ const EmployeeAdd = (props) => {
     isEmployee: true,
     isInfected: false,
     business: props.match.params.id,
+    phone: "",
   };
   const [input, setInput] = useState(initialInput);
 
@@ -56,6 +57,16 @@ const EmployeeAdd = (props) => {
           name="name"
           onChange={handleChange}
           value={input.name}
+        ></input>
+        <br />
+        <label htmlFor="phone">Phone: </label>
+        <br />
+        <input
+          type="text"
+          id="phone"
+          name="phone"
+          onChange={handleChange}
+          value={input.phone}
         ></input>
         <br />
         <label htmlFor="email">Email: </label>

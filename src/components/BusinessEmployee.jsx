@@ -9,7 +9,10 @@ const BusinessEmployee = (props) => {
       const employees = await fetch("http://localhost:9000/person");
       const parsedEmployees = await employees.json();
       console.log(parsedEmployees);
-      setEmployees(parsedEmployees);
+      const filteredEmployees = parsedEmployees.filter(
+        (person) => person.isEmployee
+      );
+      setEmployees(filteredEmployees);
     } catch (err) {
       console.log(err);
     }
@@ -45,7 +48,7 @@ const BusinessEmployee = (props) => {
     <tr>
       <td>{employee.name}</td>
       <td>{employee.email}</td>
-      <td>example number</td>
+      <td>{employee.phone}</td>
       <td>
         <a href={`/business/${props.id}/notify`}>Notify!</a>
       </td>

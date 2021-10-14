@@ -10,6 +10,7 @@ import HotdeskAdd from "./components/pages/HotdeskAdd";
 import ConferenceAdd from "./components/pages/ConferenceAdd";
 import Login from "./components/pages/Login";
 import Checkin from "./components/pages/Checkin";
+import CheckinDetail from "./components/pages/CheckinDetail";
 import Notify from "./components/pages/Notify";
 import Footer from "./components/Footer";
 import Default from "./components/pages/Default";
@@ -33,6 +34,11 @@ function App() {
           exact
           path="/:id/checkin"
           render={(routerProps) => <Checkin {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/:id/checkin/:pId"
+          render={(routerProps) => <CheckinDetail {...routerProps} />}
         />
         <Route
           exact
