@@ -25,7 +25,7 @@ const EditPortal = ({
         },
       };
       const updatedDesk = await fetch(
-        `https://git.heroku.com/office-culture.git/hotdesk/${id}`,
+        `https://office-culture.herokuapp.com/hotdesk/${id}`,
         configs
       );
       const parsedDesk = await updatedDesk.json();

@@ -25,7 +25,7 @@ const Checkin = (props) => {
   const getEmployees = async () => {
     try {
       const employees = await fetch(
-        "https://git.heroku.com/office-culture.git/person"
+        "https://office-culture.herokuapp.com/person"
       );
       const parsedEmployees = await employees.json();
       console.log(parsedEmployees);
@@ -65,7 +65,7 @@ const Checkin = (props) => {
         },
       };
       const newGuest = await fetch(
-        "https://git.heroku.com/office-culture.git/person",
+        "https://office-culture.herokuapp.com/person",
         configs
       );
       const parsedGuest = await newGuest.json();

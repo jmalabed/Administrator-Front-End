@@ -12,7 +12,9 @@ const TableRow = (props) => {
 
   const getDesk = async (id) => {
     try {
-      const foundDesk = await fetch(`http://localhost:9000/hotdesk/${id}`);
+      const foundDesk = await fetch(
+        `https://office-culture.herokuapp.com/hotdesk/${id}`
+      );
       const parsedDesk = await foundDesk.json();
       console.log(parsedDesk);
       setDesk(parsedDesk);

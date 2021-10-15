@@ -26,7 +26,7 @@ const EmployeeAdd = (props) => {
         },
       };
       const newPerson = await fetch(
-        "https://git.heroku.com/office-culture.git/person",
+        "https://office-culture.herokuapp.com/person",
         configs
       );
       const parsedPerson = await newPerson.json();

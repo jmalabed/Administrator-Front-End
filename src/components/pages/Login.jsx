@@ -18,7 +18,7 @@ const Login = (props) => {
         },
       };
       const loggedBis = await fetch(
-        "https://git.heroku.com/office-culture.git/auth/login",
+        "https://office-culture.herokuapp.com/auth/login",
         configs
       );
       const parsedBis = await loggedBis.json();
