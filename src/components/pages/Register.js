@@ -22,7 +22,7 @@ const Register = (props) => {
       };
 
       const newBis = await fetch(
-        "http://localhost:9000/auth/register",
+        "https://office-culture.herokuapp.com/auth/register",
         configs
       );
       const parsedBis = await newBis.json();

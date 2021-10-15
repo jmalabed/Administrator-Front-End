@@ -18,7 +18,7 @@ const Login = (props) => {
         },
       };
       const loggedBis = await fetch(
-        "http://localhost:9000/auth/login",
+        "https://office-culture.herokuapp.com/auth/login",
         configs
       );
       const parsedBis = await loggedBis.json();

@@ -6,7 +6,9 @@ const BusinessEmployee = (props) => {
 
   const getEmployees = async () => {
     try {
-      const employees = await fetch("http://localhost:9000/person");
+      const employees = await fetch(
+        "https://office-culture.herokuapp.com/person"
+      );
       const parsedEmployees = await employees.json();
       console.log(parsedEmployees);
       const filteredEmployees = parsedEmployees.filter(
@@ -25,7 +27,7 @@ const BusinessEmployee = (props) => {
         method: "DELETE",
       };
       const deletedEmployee = await fetch(
-        `http://localhost:9000/person/${id}`,
+        `https://office-culture.herokuapp.com/person/${id}`,
         configs
       );
       const parsedEmployee = await deletedEmployee.json();

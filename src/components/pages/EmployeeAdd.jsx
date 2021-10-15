@@ -25,7 +25,10 @@ const EmployeeAdd = (props) => {
           "Content-Type": "application/json",
         },
       };
-      const newPerson = await fetch("http://localhost:9000/person", configs);
+      const newPerson = await fetch(
+        "https://office-culture.herokuapp.com/person",
+        configs
+      );
       const parsedPerson = await newPerson.json();
       console.log(parsedPerson);
     } catch (err) {

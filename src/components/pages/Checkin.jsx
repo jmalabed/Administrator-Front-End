@@ -24,7 +24,9 @@ const Checkin = (props) => {
 
   const getEmployees = async () => {
     try {
-      const employees = await fetch("http://localhost:9000/person");
+      const employees = await fetch(
+        "https://office-culture.herokuapp.com/person"
+      );
       const parsedEmployees = await employees.json();
       console.log(parsedEmployees);
       const filteredBusiness = parsedEmployees.filter(
@@ -62,7 +64,10 @@ const Checkin = (props) => {
           "Content-Type": "application/json",
         },
       };
-      const newGuest = await fetch("http://localhost:9000/person", configs);
+      const newGuest = await fetch(
+        "https://office-culture.herokuapp.com/person",
+        configs
+      );
       const parsedGuest = await newGuest.json();
       console.log(parsedGuest);
       setGuest(parsedGuest);

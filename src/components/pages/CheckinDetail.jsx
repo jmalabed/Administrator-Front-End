@@ -11,7 +11,9 @@ const CheckinDetail = (props) => {
 
   const getEmployee = async (id) => {
     try {
-      const employee = await fetch("http://localhost:9000/person/" + id);
+      const employee = await fetch(
+        "https://office-culture.herokuapp.com/person/" + id
+      );
       const parsedEmployee = await employee.json();
 
       setEmployee(parsedEmployee);
@@ -22,7 +24,9 @@ const CheckinDetail = (props) => {
 
   const getGuest = async (id) => {
     try {
-      const guest = await fetch("http://localhost:9000/person/" + id);
+      const guest = await fetch(
+        "https://office-culture.herokuapp.com/person/" + id
+      );
       const parsedGuest = await guest.json();
       console.log(parsedGuest.dateVisited);
       setGuest(parsedGuest);
@@ -34,7 +38,9 @@ const CheckinDetail = (props) => {
   //get first available desk in list
   const getDesk = async () => {
     try {
-      const allDesks = await fetch(`http://localhost:9000/hotdesk`);
+      const allDesks = await fetch(
+        `https://office-culture.herokuapp.com/hotdesk`
+      );
       const parsedDesks = await allDesks.json();
 
       if (parsedDesks.length >= 1) {
@@ -68,7 +74,7 @@ const CheckinDetail = (props) => {
         },
       };
       const updateDesk = await fetch(
-        `http://localhost:9000/hotdesk/${id}`,
+        `https://office-culture.herokuapp.com/hotdesk/${id}`,
         configs
       );
       const parsedDesk = await updateDesk.json();
