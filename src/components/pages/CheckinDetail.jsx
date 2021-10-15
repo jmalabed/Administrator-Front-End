@@ -12,7 +12,7 @@ const CheckinDetail = (props) => {
   const getEmployee = async (id) => {
     try {
       const employee = await fetch(
-        "https://office-culture.herokuapp.com/person/" + id
+        "https://git.heroku.com/office-culture.git/person/" + id
       );
       const parsedEmployee = await employee.json();
 
@@ -25,7 +25,7 @@ const CheckinDetail = (props) => {
   const getGuest = async (id) => {
     try {
       const guest = await fetch(
-        "https://office-culture.herokuapp.com/person/" + id
+        "https://git.heroku.com/office-culture.git/person/" + id
       );
       const parsedGuest = await guest.json();
       console.log(parsedGuest.dateVisited);
@@ -39,7 +39,7 @@ const CheckinDetail = (props) => {
   const getDesk = async () => {
     try {
       const allDesks = await fetch(
-        `https://office-culture.herokuapp.com/hotdesk`
+        `https://git.heroku.com/office-culture.git/hotdesk`
       );
       const parsedDesks = await allDesks.json();
 
@@ -74,7 +74,7 @@ const CheckinDetail = (props) => {
         },
       };
       const updateDesk = await fetch(
-        `https://office-culture.herokuapp.com/hotdesk/${id}`,
+        `https://git.heroku.com/office-culture.git/hotdesk/${id}`,
         configs
       );
       const parsedDesk = await updateDesk.json();

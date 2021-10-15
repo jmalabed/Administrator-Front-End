@@ -9,7 +9,7 @@ const BusinessHotdesk = (props) => {
   const getDesks = async () => {
     try {
       const allDesks = await fetch(
-        "https://office-culture.herokuapp.com/hotdesk/"
+        "https://git.heroku.com/office-culture.git/hotdesk/"
       );
       const parsedDesks = await allDesks.json();
       console.log(parsedDesks);
@@ -36,7 +36,7 @@ const BusinessHotdesk = (props) => {
       };
 
       const newDesk = await fetch(
-        "https://office-culture.herokuapp.com/hotdesk",
+        "https://git.heroku.com/office-culture.git/hotdesk",
         configs
       );
       const parsedDesk = await newDesk.json();
@@ -53,7 +53,7 @@ const BusinessHotdesk = (props) => {
         method: "DELETE",
       };
       const deletedDesk = await fetch(
-        `https://office-culture.herokuapp.com/hotdesk/${id}`,
+        `https://git.heroku.com/office-culture.git/hotdesk/${id}`,
         configs
       );
       const parsedDesk = await deletedDesk.json();

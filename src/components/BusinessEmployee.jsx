@@ -7,7 +7,7 @@ const BusinessEmployee = (props) => {
   const getEmployees = async () => {
     try {
       const employees = await fetch(
-        "https://office-culture.herokuapp.com/person"
+        "https://git.heroku.com/office-culture.git/person"
       );
       const parsedEmployees = await employees.json();
       console.log(parsedEmployees);
@@ -27,7 +27,7 @@ const BusinessEmployee = (props) => {
         method: "DELETE",
       };
       const deletedEmployee = await fetch(
-        `https://office-culture.herokuapp.com/person/${id}`,
+        `https://git.heroku.com/office-culture.git/person/${id}`,
         configs
       );
       const parsedEmployee = await deletedEmployee.json();

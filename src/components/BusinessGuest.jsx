@@ -6,7 +6,9 @@ const BusinessGuest = (props) => {
 
   const getGuests = async () => {
     try {
-      const guests = await fetch("https://office-culture.herokuapp.com/person");
+      const guests = await fetch(
+        "https://git.heroku.com/office-culture.git/person"
+      );
       const parsedGuests = await guests.json();
       console.log(parsedGuests);
       const filteredGuests = parsedGuests.filter(
@@ -25,7 +27,7 @@ const BusinessGuest = (props) => {
         method: "DELETE",
       };
       const deletedGuest = await fetch(
-        `https://office-culture.herokuapp.com/person/${id}`,
+        `https://git.heroku.com/office-culture.git/person/${id}`,
         configs
       );
       const parsedGuest = await deletedGuest.json();
