@@ -20,6 +20,8 @@ const Checkin = (props) => {
   const [visiting, setVisiting] = useState("");
   const [guest, setGuest] = useState({});
 
+  const [currentTime, setCurrentTime] = useState(new Date());
+
   const getEmployees = async () => {
     try {
       const employees = await fetch("http://localhost:9000/person");
@@ -60,18 +62,19 @@ const Checkin = (props) => {
           "Content-Type": "application/json",
         },
       };
-      const newPerson = await fetch("http://localhost:9000/person", configs);
-      const parsedPerson = await newPerson.json();
-      console.log(parsedPerson);
-      setGuest(parsedPerson);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      if (guest._id) {
-        props.history.push(`/${guest.business}/checkin/${guest.visiting}`);
+      const newGuest = await fetch("http://localhost:9000/person", configs);
+      const parsedGuest = await newGuest.json();
+      console.log(parsedGuest);
+      setGuest(parsedGuest);
+      if (parsedGuest._id) {
+        props.history.push(
+          `/${parsedGuest.business}/checkin/${parsedGuest.visiting}/${parsedGuest._id}`
+        );
       } else {
         alert("Unable to create user. Please try again.");
       }
+    } catch (err) {
+      console.log(err);
     }
   };
 

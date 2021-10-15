@@ -37,7 +37,7 @@ function App() {
         />
         <Route
           exact
-          path="/:id/checkin/:pId"
+          path="/:bId/checkin/:eId/:gId"
           render={(routerProps) => <CheckinDetail {...routerProps} />}
         />
         <Route

@@ -7,7 +7,9 @@ import BusinessConference from "../BusinessConference";
 const Business = (props) => {
   return (
     <>
-      <a href={`/${props.match.params.id}/checkin`}>Guest Check-in</a>
+      <Button variant="primary" href={`/${props.match.params.id}/checkin`}>
+        Guest Check-in
+      </Button>
       <BusinessEmployee id={props.match.params.id} />
       <br />
       <BusinessGuest id={props.match.params.id} />
