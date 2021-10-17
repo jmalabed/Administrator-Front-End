@@ -23,6 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "git": "git add . && git status && git commit -m 'saved by script for deployment purposes'",
     "deploy": "rm -r build && npm run build && cp build/index.html build/200.html && echo '*' >build/CORS && surge build https://office-culture.surge.sh"
   },
   "eslintConfig": {

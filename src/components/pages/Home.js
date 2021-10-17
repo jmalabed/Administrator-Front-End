@@ -5,11 +5,11 @@ const Home = (props) => {
     <div>
       <div>
         <Container>
-          <h2 className="mt-3">
-            The guest administration software of the future.
-          </h2>
-          <br />
-
+          <div className="jm-tagline">
+            <h2 className="mt-3">
+              The guest administration software of the future.
+            </h2>
+          </div>
           <div id="about">
             <h4 className="mt-3 mb-5">
               The office culture is an all in one office space management,
