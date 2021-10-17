@@ -98,7 +98,8 @@ const Home = (props) => {
                     <div id="card3" className="jm-cardText">
                       Not everyone is an office coordinator. Luckily, this
                       application tracks and neatly organizes the desks and
-                      conference rooms that are available to staff.
+                      conference rooms that are available to staff, saving time
+                      and scheduling headaches.
                     </div>
                   </Fade>
                 </Card.ImgOverlay>

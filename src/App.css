@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@1,300&display=swap");
+
 .App {
   text-align: center;
   font-family: "Playfair Display", serif;
@@ -118,6 +119,7 @@ html {
   background-color: rgba(50, 50, 50, 0.7);
   border-radius: 5px;
   padding: 5px;
+  line-height: 1.7em;
 }
 
 img.card-img {
@@ -141,4 +143,8 @@ img.card-img {
 
 .jm-fun {
   color: #00ced1;
+}
+
+.jm-gHImg {
+  width: 20%;
 }
