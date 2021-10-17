@@ -1,4 +1,5 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { useEffect, useState } from "react";
 
 const Home = (props) => {
   return (
@@ -18,25 +19,49 @@ const Home = (props) => {
             <hr className="" />
             <Row>
               <Col>
-                <Card></Card>
-              </Col>
-              <Col>
                 <Card>
-                  <p className="mt-5">
+                  <p className="">
                     <b>
-                      Safety and awareness of COVID is something that has not
-                      yet been seamlessly integrated into office guest
-                      management software. The Office Culture bridges this gap
-                      by assigning available desks and conference rooms to the
-                      necessary people while logging attendance. Information of
-                      a positive COVID test is quickly and transparently
-                      distributed to the necessary people to minimize delay and
-                      maximize the safety of staff and guests.
+                      Guest Sign in
+                      <p>
+                        Handle guests with ease on a platform that not only
+                        welcomes them into their space, but also helps connect
+                        them with the company through notifying the employee
+                        requested.
+                      </p>
                     </b>
                   </p>
                 </Card>
               </Col>
-              <Col></Col>
+              <Col>
+                <Card>
+                  <p className="">
+                    <b>
+                      Covid Notifications
+                      <p>
+                        Your staff and guests deserve transparent, timely, and
+                        direct COVID notifications that will help them feel safe
+                        and in the loop. The Administrator connects to everyone
+                        that was in the vacinity of a COVID infection via SMS.
+                      </p>
+                    </b>
+                  </p>
+                </Card>
+              </Col>
+              <Col>
+                <Card>
+                  <p className="">
+                    <b>
+                      Resource Management
+                      <p>
+                        Not everyone is an architect or office coordinator.
+                        Luckily, this application tracks and neatly organizes
+                        the desks and conference rooms are available to staff.
+                      </p>
+                    </b>
+                  </p>
+                </Card>
+              </Col>
             </Row>
 
             <h3 className="mb-2 mt-5">
