@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { Card, Button, Container } from "react-bootstrap";
 import moment from "moment";
 
 const CheckinDetail = (props) => {
@@ -101,7 +101,7 @@ const CheckinDetail = (props) => {
       console.log(desk.timeOccupied);
       return (
         <>
-          <h3>{desk.name}</h3>
+          <h3 className="jm-fun">{desk.name}</h3>
 
           <p>
             It is now {time.format("hh:mm")}, it will be reserved until{" "}
@@ -120,21 +120,25 @@ const CheckinDetail = (props) => {
 
   return (
     <>
-      <div>
-        <div>
-          <h2>Thank you for checking in.</h2>
+      <h2 className="mt-3 mb-3">Thank you for checking in.</h2>
+      <Container>
+        <Card>
           <p>{hostName()} will greet you when they have a moment.</p>
           <p>Please make yourself at home at Hot Desk: {hotdeskName()}</p>
-          {/*<p>
-            Your meeting is scheduled to be in CONFERENCEROOMX. It will be
-            reserved for the next hour.
-          </p>*/}
+
           <p>
             Report a positive covid case at this{" "}
             <a href={`/business/${props.match.params.bId}/notify`}>link</a>.
           </p>
-        </div>
-      </div>
+        </Card>
+        <Button
+          variant="light"
+          href={`/${props.match.params.bId}/checkin`}
+          className="mt-3"
+        >
+          Return to sign in page
+        </Button>
+      </Container>
     </>
   );
 };

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import EditPortal from "./EditPortal";
 import { Button } from "react-bootstrap";
+import moment from "moment";
 
 const TableRow = (props) => {
   const [open, setOpen] = useState(false);
@@ -29,29 +30,37 @@ const TableRow = (props) => {
     console.log(desk.name);
   }, [update]);
 
+  const time = (date) => {
+    if (date) {
+      return moment(date).format("hh:mm");
+    } else {
+      return null;
+    }
+  };
+
+  console.log(time(props.desk.timeOccupied));
+
   return (
-    <>
-      <tr key={props.desk._id}>
-        <td onClick={() => setOpen(true)}>
-          <u>{desk.name}</u>
-        </td>
+    <tr key={props.desk._id}>
+      <td onClick={() => setOpen(true)}>
+        <u>{desk.name}</u>
+      </td>
 
-        <EditPortal
-          deskId={props.desk._id}
-          isOpen={open}
-          onClose={() => setOpen(false)}
-          input={input}
-          setInput={setInput}
-          setUpdate={() => setUpdate(!update)}
-        />
+      <EditPortal
+        deskId={props.desk._id}
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        input={input}
+        setInput={setInput}
+        setUpdate={() => setUpdate(!update)}
+      />
 
-        <td>{props.desk.isOccupied ? "Yes" : "No"}</td>
-        <td>{props.desk.timeOccupied}</td>
-        <td onClick={() => props.deleteDesk(props.desk._id)}>
-          <Button variant="danger">Delete</Button>
-        </td>
-      </tr>
-    </>
+      <td>{props.desk.isOccupied ? "Yes" : "No"}</td>
+      <td>{time(props.desk.timeOccupied)}</td>
+      <td onClick={() => props.deleteDesk(props.desk._id)}>
+        <Button variant="danger">Delete</Button>
+      </td>
+    </tr>
   );
 };
 export default TableRow;

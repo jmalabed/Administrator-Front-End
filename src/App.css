@@ -113,3 +113,32 @@ html {
   font-family: "Playfair Display", serif;
   color: rgb(5, 10, 55);
 }
+
+.jm-cardText {
+  background-color: rgba(50, 50, 50, 0.7);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+img.card-img {
+  object-fit: cover;
+  height: 290px;
+  width: 100%;
+}
+
+.jm-textSplash {
+  height: 30vh;
+  letter-spacing: 1px;
+}
+
+.jm-pgbrk {
+  background-color: grey;
+}
+
+.jm-pText {
+  color: rgb(240, 240, 240);
+}
+
+.jm-fun {
+  color: #00ced1;
+}
