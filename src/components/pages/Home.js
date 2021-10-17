@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 
 const Home = (props) => {
   return (
@@ -16,17 +16,28 @@ const Home = (props) => {
               administrative, and COVID notification software.
             </h4>
             <hr className="" />
-            <p className="mt-5">
-              <b>
-                Safety and awareness of COVID is something that has not yet been
-                seamlessly integrated into office guest management software. The
-                Office Culture bridges this gap by assigning available desks and
-                conference rooms to the necessary people while logging
-                attendance. Information of a positive COVID test is quickly and
-                transparently distributed to the necessary people to minimize
-                delay and maximize the safety of staff and guests.
-              </b>
-            </p>
+            <Row>
+              <Col>
+                <Card></Card>
+              </Col>
+              <Col>
+                <Card>
+                  <p className="mt-5">
+                    <b>
+                      Safety and awareness of COVID is something that has not
+                      yet been seamlessly integrated into office guest
+                      management software. The Office Culture bridges this gap
+                      by assigning available desks and conference rooms to the
+                      necessary people while logging attendance. Information of
+                      a positive COVID test is quickly and transparently
+                      distributed to the necessary people to minimize delay and
+                      maximize the safety of staff and guests.
+                    </b>
+                  </p>
+                </Card>
+              </Col>
+              <Col></Col>
+            </Row>
 
             <h3 className="mb-2 mt-5">
               <a href="/register">Sign up to try it out!</a>
