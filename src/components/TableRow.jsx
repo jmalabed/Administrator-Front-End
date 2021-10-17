@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import EditPortal from "./EditPortal";
+import { Button } from "react-bootstrap";
 
 const TableRow = (props) => {
   const [open, setOpen] = useState(false);
@@ -46,7 +47,9 @@ const TableRow = (props) => {
 
         <td>{props.desk.isOccupied ? "Yes" : "No"}</td>
         <td>{props.desk.timeOccupied}</td>
-        <td onClick={() => props.deleteDesk(props.desk._id)}>delete</td>
+        <td onClick={() => props.deleteDesk(props.desk._id)}>
+          <Button variant="danger">Delete</Button>
+        </td>
       </tr>
     </>
   );

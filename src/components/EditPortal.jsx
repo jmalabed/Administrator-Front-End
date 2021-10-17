@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState, useEffect } from "react";
-
+import { Form, Button, Row, Col } from "react-bootstrap";
 const EditPortal = ({
   isOpen,
   deskId,
@@ -46,14 +46,33 @@ const EditPortal = ({
   if (!isOpen) return null;
   return ReactDOM.createPortal(
     <div id="modal-wrap">
-      <form onSubmit={handleSubmit}>
-        <h2> Edit hotdesk name here:</h2>
-        <input type="text" name="name" onChange={handleChange}></input>
-        <input type="submit" value="Edit" />
-        <button onClick={onClose} className="close">
-          Close
-        </button>
-      </form>
+      <div id="jm-modal">
+        <Row>
+          <Col></Col>
+          <Col className="d-flex flex-column justify-content-center">
+            <h2 className="text-center mb-5"> Edit hotdesk name here:</h2>
+            <Form onSubmit={handleSubmit} className="d-flex flex-column">
+              <Form.Control
+                className="mb-3"
+                type="text"
+                name="name"
+                onChange={handleChange}
+                placeholder="Name:"
+              ></Form.Control>
+              <div className="d-flex justify-content-around">
+                <Button variant="success" type="submit" value="Edit">
+                  Edit
+                </Button>
+                <br />
+                <Button variant="light" onClick={onClose}>
+                  Close
+                </Button>
+              </div>
+            </Form>
+          </Col>
+          <Col></Col>
+        </Row>
+      </div>
     </div>,
     document.getElementById("jm-portal")
   );

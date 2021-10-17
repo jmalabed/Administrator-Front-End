@@ -1,8 +1,7 @@
 import "./App.css";
-import { Route, Link, Switch, withRouter, useHistory } from "react-router-dom";
-
+import { Route, Link, Switch } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
 import Home from "./components/pages/Home";
-import Navigation from "./components/Navigation";
 import Register from "./components/pages/Register";
 import Business from "./components/pages/Business";
 import EmployeeAdd from "./components/pages/EmployeeAdd";
@@ -18,11 +17,17 @@ import Default from "./components/pages/Default";
 function App() {
   return (
     <div className="App">
-      <Navigation />
+      <Navbar expand="lg" className="justify-content-center header-container">
+        <div className="flex-col">
+          <div className="d-flex justify-content-center ">
+            <h1 id="title">THE ADMINISTRATOR</h1>
+          </div>
+        </div>
+      </Navbar>
       <Switch>
         <Route
           exact
-          path="/home"
+          path="/"
           render={(routerProps) => <Home {...routerProps} />}
         />
         <Route

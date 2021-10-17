@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import React from "react";
-import { Link } from "react-router-dom";
 import CheckedIn from "../CheckedIn";
 import ReactDOM from "react-dom";
 import CheckinDetail from "./CheckinDetail";
+import { Form, Button, FloatingLabel, Row, Col } from "react-bootstrap";
 
 const Checkin = (props) => {
   const initialInput = {
@@ -100,43 +100,65 @@ const Checkin = (props) => {
 
   return (
     <>
-      <h1>Sign in</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          placeholder="Name"
-          onChange={handleChange}
-        ></input>
-        <br></br>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        ></input>{" "}
-        <br />
-        <label htmlFor="phone">Phone:</label>
-        <input
-          type="phone"
-          id="phone"
-          name="phone"
-          placeholder="Phone"
-          onChange={handleChange}
-        ></input>
-        <br />
-        <label htmlFor="visiting">I am here for:</label>
-        <select name="visiting" id="visiting" onChange={handleVisitor}>
-          <option value="">Select one...</option>
-          {employee}
-        </select>
-        <br />
-        <input type="submit" value="Sign in" />
-      </form>
+      <h2 className="mt-3 mb-3">Sign in</h2>
+      <Row>
+        <Col></Col>
+        <Col>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mt-4 mb-4">
+              <Form.Control
+                id="name"
+                type="text"
+                name="name"
+                onChange={handleChange}
+                placeholder="Name"
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group className="mt-4 mb-4">
+              <Form.Control
+                type="email"
+                id="email"
+                name="email"
+                onChange={handleChange}
+                placeholder="Email"
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group className="mt-4 mb-4">
+              <Form.Control
+                type="phone"
+                id="phone"
+                name="phone"
+                onChange={handleChange}
+                placeholder="Phone Number"
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group name="visiting" id="visiting" onChange={handleVisitor}>
+              <FloatingLabel
+                controlId="floatingSelect"
+                label="I am here to visit:"
+                className="mt-5 mb-5"
+              >
+                <Form.Select>
+                  <option value={false}>Select one...</option>
+                  {employee}
+                </Form.Select>
+              </FloatingLabel>
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Sign In
+            </Button>
+            <br></br>
+            <Button
+              className="mt-5"
+              variant="light"
+              href={`/business/${props.match.params.id}`}
+            >
+              Back to Business
+            </Button>
+          </Form>
+        </Col>
+        <Col></Col>
+      </Row>
     </>
   );
 };

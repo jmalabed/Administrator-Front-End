@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Moment from "react-moment";
+
 import moment from "moment";
 
 const CheckinDetail = (props) => {
@@ -114,7 +114,7 @@ const CheckinDetail = (props) => {
 
   const hostName = () => {
     if (employee) {
-      return <>{employee.name}</>;
+      return <b>{employee.name}</b>;
     }
   };
 

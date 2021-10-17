@@ -1,5 +1,6 @@
 import { Button, Table } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { Row, Col } from "react-bootstrap";
 
 const BusinessGuest = (props) => {
   const [guests, setGuests] = useState([]);
@@ -38,27 +39,45 @@ const BusinessGuest = (props) => {
       console.log(err);
     }
   };
+
   useEffect(() => {
     console.log("working");
     getGuests();
     console.log(guests);
   }, []);
 
-  const tableRow = guests.map((guest) => (
-    <tr>
-      <td>{guest.name}</td>
-      <td>{guest.email}</td>
-      <td>{guest.phone}</td>
-      <td>
-        <a href={`/business/${props.id}/notify`}>Notify!</a>
-      </td>
-      <td onClick={() => deleteGuest(guest._id)}>delete</td>
-    </tr>
-  ));
+  const checkRow = () => {
+    if (guests.length > 0) {
+      console.log(guests.length);
+      return guests.map((guest) => (
+        <tr>
+          <td>{guest.name}</td>
+          <td>{guest.email}</td>
+          <td>{guest.phone}</td>
+          <td>
+            <a href={`/business/${props.id}/notify`}>Notify!</a>
+          </td>
+          <td onClick={() => deleteGuest(guest._id)}>
+            <Button variant="danger">Delete</Button>
+          </td>
+        </tr>
+      ));
+    } else {
+      return (
+        <tr className="mt-3 mb-3">
+          <td></td>
+          <td></td>
+          <td>No guests added yet...</td>
+          <td></td>
+          <td></td>
+        </tr>
+      );
+    }
+  };
 
   return (
-    <>
-      <h2>Guests</h2>
+    <div className="jm-card">
+      <h2 className="jm-th">Guests</h2>
       <Table responsive>
         <thead>
           <tr>
@@ -69,9 +88,22 @@ const BusinessGuest = (props) => {
             <th>Delete</th>
           </tr>
         </thead>
-        <tbody>{tableRow}</tbody>
+        <tbody>{checkRow()}</tbody>
       </Table>
-    </>
+      <Row>
+        <Col></Col>
+        <Col>
+          <Button
+            className="mb-3"
+            variant="primary"
+            href={`/${props.id}/checkin`}
+          >
+            Guest Check-in
+          </Button>
+        </Col>
+        <Col></Col>
+      </Row>
+    </div>
   );
 };
 export default BusinessGuest;

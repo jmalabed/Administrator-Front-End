@@ -1,5 +1,6 @@
 import { Button, Table } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { Row, Col } from "react-bootstrap";
 
 const BusinessEmployee = (props) => {
   const [employees, setEmployees] = useState([]);
@@ -46,38 +47,66 @@ const BusinessEmployee = (props) => {
     console.log(employees);
   }, []);
 
-  const tableRow = employees.map((employee) => (
-    <tr>
-      <td>{employee.name}</td>
-      <td>{employee.email}</td>
-      <td>{employee.phone}</td>
-      <td>
-        <a href={`/business/${props.id}/notify`}>Notify!</a>
-      </td>
-      <td onClick={() => deleteEmployee(employee._id)}>delete</td>
-    </tr>
-  ));
+  const checkRow = () => {
+    console.log(employees);
+    if (employees.length > 0) {
+      return employees.map((employee) => (
+        <tr>
+          <td>{employee.name}</td>
+          <td>{employee.email}</td>
+          <td>{employee.phone}</td>
+          <td>
+            <a href={`/business/${props.id}/notify`}>Notify!</a>
+          </td>
+          <td onClick={() => deleteEmployee(employee._id)}>
+            <Button variant="danger">Delete</Button>
+          </td>
+        </tr>
+      ));
+    } else {
+      return (
+        <tr>
+          <td></td>
+          <td></td>
+          <td>No employees added yet...</td>
+          <td></td>
+          <td></td>
+        </tr>
+      );
+    }
+  };
 
   return (
-    <>
-      <h2>Employees</h2>
-      <Table responsive>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Number</th>
-            <th>Covid?</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>{tableRow}</tbody>
-      </Table>
-
-      <Button variant="success" href={`${props.id}/employee/add`}>
-        Add Employee
-      </Button>
-    </>
+    <div>
+      <div className="jm-card">
+        <h2 className="jm-th">Employees</h2>
+        <Table responsive>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Number</th>
+              <th>Covid?</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>{checkRow()}</tbody>
+        </Table>
+        <Row>
+          <Col></Col>
+          <Col>
+            <Button
+              className="mb-3"
+              variant="success"
+              href={`${props.id}/employee/add`}
+            >
+              Add Employee
+            </Button>
+          </Col>
+          <Col></Col>
+        </Row>
+      </div>
+    </div>
   );
 };
 export default BusinessEmployee;

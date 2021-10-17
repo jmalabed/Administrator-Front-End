@@ -1,4 +1,4 @@
-import { Button, Table } from "react-bootstrap";
+import { Button, Table, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import TableRow from "./TableRow";
 
@@ -70,17 +70,31 @@ const BusinessHotdesk = (props) => {
     console.log("click");
   };
 
-  const tableRows = desks.map((desk) => (
-    <TableRow desk={desk} deleteDesk={deleteDesk} />
-  ));
+  const checkRow = () => {
+    console.log(desks);
+    if (desks.length > 0) {
+      return desks.map((desk) => (
+        <TableRow desk={desk} deleteDesk={deleteDesk} />
+      ));
+    } else {
+      return (
+        <tr>
+          <td></td>
+          <td>No workstations added yet...</td>
+          <td></td>
+          <td></td>
+        </tr>
+      );
+    }
+  };
 
   useEffect(() => {
     getDesks();
   }, []);
 
   return (
-    <>
-      <h2>Hotdesk</h2>
+    <div className="jm-card">
+      <h2 className="jm-th">Hotdesk</h2>
       <div id="hotDeskTable">
         <Table responsive>
           <thead>
@@ -91,13 +105,19 @@ const BusinessHotdesk = (props) => {
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody>{tableRows}</tbody>
+          <tbody>{checkRow()}</tbody>
         </Table>
       </div>
-      <Button variant="success" onClick={() => makeDesk()}>
-        Add Hotdesk
-      </Button>
-    </>
+      <Row>
+        <Col></Col>
+        <Col>
+          <Button className="mb-3" variant="success" onClick={() => makeDesk()}>
+            Add Hotdesk
+          </Button>
+        </Col>
+        <Col></Col>
+      </Row>
+    </div>
   );
 };
 export default BusinessHotdesk;

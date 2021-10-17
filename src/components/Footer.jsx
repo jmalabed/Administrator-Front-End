@@ -1,5 +1,5 @@
 import { Container, Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <Container className="footer">

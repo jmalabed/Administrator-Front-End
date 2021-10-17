@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { Form, Row, Col, Button } from "react-bootstrap";
 const EmployeeAdd = (props) => {
   const initialInput = {
     name: "",
@@ -50,41 +50,53 @@ const EmployeeAdd = (props) => {
 
   return (
     <>
-      <h1>Add Employee</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name: </label>
-        <br />
-        <input
-          type="text"
-          id="name"
-          name="name"
-          onChange={handleChange}
-          value={input.name}
-        ></input>
-        <br />
-        <label htmlFor="phone">Phone: </label>
-        <br />
-        <input
-          type="text"
-          id="phone"
-          name="phone"
-          onChange={handleChange}
-          value={input.phone}
-        ></input>
-        <br />
-        <label htmlFor="email">Email: </label>
-        <br />
-        <input
-          type="email"
-          id="email"
-          name="email"
-          onChange={handleChange}
-          value={input.email}
-        ></input>
-        <br />
-        <input type="submit" value="Add"></input>
-      </form>
-      <a href={`/business/${props.match.params.id}`}>Return to business</a>
+      <h1 className="mt-3">Add Employee</h1>
+      <Row className="mb-5">
+        <Col></Col>
+        <Col>
+          <Form onSubmit={handleSubmit}>
+            <br />
+            <Form.Group className="mt-3 mb-5">
+              <Form.Control
+                type="text"
+                id="name"
+                name="name"
+                onChange={handleChange}
+                value={input.name}
+                placeholder="Name:"
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group className="mt-5 mb-5">
+              <Form.Control
+                type="text"
+                id="phone"
+                name="phone"
+                onChange={handleChange}
+                value={input.phone}
+                placeholder="Phone:"
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group className="mt-5 mb-5">
+              <Form.Control
+                type="email"
+                id="email"
+                name="email"
+                onChange={handleChange}
+                value={input.email}
+                placeholder="Email:"
+              ></Form.Control>
+            </Form.Group>
+            <br />
+            <Button className="mb-5" type="submit">
+              Add!
+            </Button>
+          </Form>
+          <Button variant="light" href={`/business/${props.match.params.id}`}>
+            Back to business
+          </Button>
+        </Col>
+        <Col></Col>
+      </Row>
     </>
   );
 };

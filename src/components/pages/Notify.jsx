@@ -1,25 +1,4 @@
-import { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
-
-{
-  /*// Twilio Credentials
-// To set up environmental variables, see http://twil.io/secure
-const accountSid =
-  process.env.TWILIO_ACCOUNT_SID || "AC1309820e1227cdef465de40a6b6b60a0";
-const authToken =
-  process.env.TWILIO_AUTH_TOKEN || "60f6470444ab9e0a281bec2403007342";
-console.log(accountSid, authToken);
-// require the Twilio module and create a REST client
-const client = require("twilio")(accountSid, authToken);
-
-client.messages
-  .create({
-    to: "+14086934921",
-    from: "+13185366423",
-    body: "Whats up baby",
-  })
-  .then((message) => console.log(message.sid));*/
-}
 
 const Notify = (props) => {
   const today = new Date().toLocaleDateString();

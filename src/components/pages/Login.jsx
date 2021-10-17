@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { setBisToken, clearBisToken } from "../../utility/authToken";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
+
 const Login = (props) => {
   const [input, setInput] = useState({
     name: "",
@@ -44,7 +46,7 @@ const Login = (props) => {
       if (loggedBis) {
         props.history.push(`/business/${bisId}`);
       } else {
-        alert("Account not recognized.");
+        alert("Account not recognized. Try again.");
         props.history.push("/login");
       }
     }
@@ -56,32 +58,40 @@ const Login = (props) => {
   };
   return (
     <>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Business Name:</label>
-        <br />
-        <input
-          type="text"
-          id="name"
-          name="name"
-          onChange={handleChange}
-          value={input.name}
-        />
-        <br />
-        <br />
-        <label htmlFor="pass">Password:</label>
-        <br />
-        <input
-          type="password"
-          id="pass"
-          name="pass"
-          onChange={handleChange}
-          value={input.pass}
-        />{" "}
-        <br />
-        <br />
-        <input type="submit" value="Submit!" />
-      </form>
+      <h1 className="mt-3">Login</h1>
+      <Container>
+        <Row>
+          <Col></Col>
+          <Col>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mt-5">
+                <Form.Control
+                  type="text"
+                  id="name"
+                  name="name"
+                  onChange={handleChange}
+                  value={input.name}
+                  placeholder="Business Name:"
+                />
+              </Form.Group>
+              <Form.Group className="mt-5">
+                <Form.Control
+                  type="password"
+                  id="pass"
+                  name="pass"
+                  onChange={handleChange}
+                  value={input.pass}
+                  placeholder="Password:"
+                />
+              </Form.Group>
+              <Button className="mt-5 mb-5" type="submit">
+                Submit!
+              </Button>
+            </Form>
+          </Col>
+          <Col></Col>
+        </Row>
+      </Container>
     </>
   );
 };

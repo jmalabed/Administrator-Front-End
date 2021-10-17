@@ -1,5 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@1,300&display=swap");
 .App {
   text-align: center;
+  font-family: "Playfair Display", serif;
+  background-color: rgb(5, 10, 55);
 }
 
 .App-logo {
@@ -46,21 +51,65 @@
   width: 100vw;
   position: fixed;
 }
+/* REACT PORTAL FORMATTING */
+#jm-portal {
+  font-family: "Playfair Display", serif;
+}
 
 #modal-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(200, 200, 200, 0.75);
+  width: 100vw;
+  height: 100vh;
+  font-family: "Playfair Display", serif;
 }
 
-#jm-portal {
-  z-index: 1000;
-  position: fixed;
-  transform: translate(14vw, -50vh);
-  background-color: rgba(200, 200, 200, 0.75);
-  width: 70vw;
+#jm-modal {
+  background-color: rgb(5, 10, 55);
+  margin: 10vw;
+  border-radius: 20px;
+  padding: 30px;
 }
+/* END REACT PORTAL FORMATTING  */
 
 .hidden {
   display: none;
+}
+
+#title {
+  letter-spacing: 5px;
+  color: #131a5e;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: rgb(245, 245, 245);
+}
+
+.header-container {
+  background-color: rgb(245, 245, 245);
+}
+
+html {
+  background-color: rgb(5, 10, 55);
+}
+
+.jm-card {
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(240, 240, 240);
+}
+
+#about {
+  color: rgb(245, 245, 245);
+}
+
+.jm-th {
+  font-family: "Playfair Display", serif;
+  color: rgb(5, 10, 55);
 }
