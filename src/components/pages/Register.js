@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { setBisToken, clearBisToken } from "../../utility/authToken";
+import { Form, Button, Row, Col } from "react-bootstrap";
 
 const Register = (props) => {
   const [input, setInput] = useState({
@@ -62,31 +63,37 @@ const Register = (props) => {
   return (
     <>
       <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Business Name:</label>
-        <br />
-        <input
-          type="text"
-          id="name"
-          name="name"
-          onChange={handleChange}
-          value={input.name}
-        />
-        <br />
-        <br />
-        <label htmlFor="pass">Create password:</label>
-        <br />
-        <input
-          type="password"
-          id="pass"
-          name="pass"
-          onChange={handleChange}
-          value={input.pass}
-        />{" "}
-        <br />
-        <br />
-        <input type="submit" value="Submit!" />
-      </form>
+      <Row>
+        <Col></Col>
+        <Col>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mt-4 mb-4">
+              <Form.Control
+                type="text"
+                id="name"
+                name="name"
+                onChange={handleChange}
+                value={input.name}
+                placeholder="Business name:"
+              />
+            </Form.Group>
+            <Form.Group className="mt-4 mb-4">
+              <Form.Control
+                type="password"
+                id="pass"
+                name="pass"
+                onChange={handleChange}
+                value={input.pass}
+                placeholder="Create password:"
+              />
+              <Button className="mt-5" variant="light">
+                Register 
+              </Button>
+            </Form.Group>
+          </Form>
+        </Col>
+        <Col></Col>
+      </Row>
     </>
   );
 };

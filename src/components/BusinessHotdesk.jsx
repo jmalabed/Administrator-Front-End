@@ -1,6 +1,7 @@
 import { Button, Table, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import TableRow from "./TableRow";
+import moment from "moment";
 
 const BusinessHotdesk = (props) => {
   const [desks, setDesks] = useState([]);
@@ -13,7 +14,33 @@ const BusinessHotdesk = (props) => {
       );
       const parsedDesks = await allDesks.json();
       console.log(parsedDesks);
-      setDesks(parsedDesks);
+      const checkedDesks = parsedDesks.map((desk) =>
+        moment(desk.timeOccupied).isBefore(moment().subtract(1, "hours"))
+          ? { ...desk, isOccupied: false }
+          : desk
+      );
+      console.log(checkedDesks);
+      setDesks(checkedDesks);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      desks.map((desk) => updateDesks(desk));
+    }
+  };
+
+  const updateDesks = async (desk) => {
+    try {
+      const cofigs = {
+        method: "PUT",
+        body: JSON.stringify({ isOccupied: desk.isOccupied }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const updateDesk = await fetch(
+        "https://office-culture.herokuapp.com/hotdesk/" + desk._id
+      );
+      const parsedDesk = await updateDesk.json();
     } catch (err) {
       console.log(err);
     }
