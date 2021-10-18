@@ -86,7 +86,7 @@ const Register = (props) => {
                 value={input.pass}
                 placeholder="Create password:"
               />
-            <Button className="mt-5" variant="light" onClick(handleSubmit)>
+              <Button className="mt-5" variant="light" onClick={handleSubmit}>
                 Register 
               </Button>
             </Form.Group>
