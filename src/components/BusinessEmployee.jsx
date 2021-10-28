@@ -11,8 +11,11 @@ const BusinessEmployee = (props) => {
         "https://office-culture.herokuapp.com/person"
       );
       const parsedEmployees = await employees.json();
+      const employeesAtBis = parsedEmployees.filter(
+        (employee) => employee.business === props.id
+      );
       console.log(parsedEmployees);
-      const filteredEmployees = parsedEmployees.filter(
+      const filteredEmployees = employeesAtBis.filter(
         (person) => person.isEmployee
       );
       setEmployees(filteredEmployees);

@@ -10,9 +10,10 @@ const BusinessGuest = (props) => {
       const guests = await fetch("https://office-culture.herokuapp.com/person");
       const parsedGuests = await guests.json();
       console.log(parsedGuests);
-      const filteredGuests = parsedGuests.filter(
-        (person) => !person.isEmployee
+      const bisGuests = parsedGuests.filter(
+        (guest) => guest.business === props.id
       );
+      const filteredGuests = bisGuests.filter((person) => !person.isEmployee);
       setGuests(filteredGuests);
     } catch (err) {
       console.log(err);

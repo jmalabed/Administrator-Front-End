@@ -13,10 +13,11 @@ const BusinessHotdesk = (props) => {
         "https://office-culture.herokuapp.com/hotdesk/"
       );
       const parsedDesks = await allDesks.json();
+      const bisDesks = parsedDesks.filter((desk) => desk.business === props.id);
       console.log(parsedDesks);
-      const checkedDesks = parsedDesks.map((desk) =>
+      const checkedDesks = bisDesks.map((desk) =>
         moment(desk.timeOccupied).isBefore(moment().subtract(1, "hours"))
-          ? { ...desk, isOccupied: false }
+          ? { ...desk, timeOccupied: null, isOccupied: false }
           : desk
       );
       console.log(checkedDesks);

@@ -88,13 +88,13 @@ const Notify = (props) => {
     }
   };
 
-  const notifyAll = () => {
+  const notifyAll = async () => {
     const guestNumbers = guests.map((guest) => guest.phone);
     const empNumbers = employees.map((employee) => employee.phone);
     const allNumbers = [...guestNumbers, ...empNumbers];
     console.log(allNumbers);
     for (var i = 0; i < allNumbers.length; i++) {
-      notifyOne(allNumbers[i]);
+      await notifyOne(allNumbers[i]);
     }
   };
 
