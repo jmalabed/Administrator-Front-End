@@ -1,40 +1,32 @@
-import { Navbar } from "react-bootstrap";
+import { Navbar, Button, Container } from "react-bootstrap";
 
 const Navigation = (props) => {
-  console.log("how to get params", props.id);
-
-  const logInNOut = () => {
-    if (props) {
-      return (
-        <p>
-          <a href="/logout">Logout</a>
-        </p>
-      );
-    } else {
-      return (
-        <p>
-          <a href="/login">Login</a>
-        </p>
-      );
+  const handleClick = async (id) => {
+    try {
+      const id = props.id;
+      console.log(id);
+      const logout = await fetch("https://localhost:9000/auth/logout");
+      const parsedLogout = await logout.json();
+      props.history.push("/");
+    } catch (err) {
+      console.log(err);
+      props.props.history.push({ pathname: "/" });
     }
   };
 
   return (
     <div>
-      <div expand="lg" className="justify-content-center w-100">
-        <div className="d-flex flex-col justify-content-around">
-          {/*<p>
-            <a href="/">About</a>
-          </p>
-          <p>
-            <a href="/business/id">Return to Business</a>
-          </p>*/}
-          {logInNOut()}
-          {/*<p>
-            <a href="/register">Sign Up</a>
-          </p>*/}
+      <Container>
+        <div className="d-flex flex-col justify-content-end">
+          <Button
+            onClick={handleClick}
+            variant="danger"
+            className="mt-3 mb-3 mr-5 ml-5"
+          >
+            Logout
+          </Button>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

@@ -8,7 +8,7 @@ import Navigation from "../Navigation";
 const Business = (props) => {
   return (
     <>
-      <Navigation id={props.match.params.id} />
+      <Navigation id={props.match.params.id} props={props} />
       <Container>
         <Row>
           <Col>
