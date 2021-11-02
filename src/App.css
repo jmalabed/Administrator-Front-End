@@ -148,3 +148,11 @@ img.card-img {
 .jm-gHImg {
   width: 20%;
 }
+
+.qrCode {
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 4px rgb(0, 10, 50);
+  margin: 10px;
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Card, Button, Container } from "react-bootstrap";
 import moment from "moment";
+import QrCode from "../QrCode";
 
 const CheckinDetail = (props) => {
   const [employee, setEmployee] = useState();
@@ -8,7 +9,6 @@ const CheckinDetail = (props) => {
   const [desk, setDesk] = useState({});
   const [time, setTime] = useState(moment());
   const [endTime, setEndTime] = useState(moment().add(1, "h"));
-
   const getEmployee = async (id) => {
     try {
       const employee = await fetch(
@@ -122,7 +122,9 @@ const CheckinDetail = (props) => {
     <>
       <h2 className="mt-3 mb-3">Thank you for checking in.</h2>
       <Container>
-        <Card>
+        <Card className="d-flex justify-content-center align-items-center">
+          <QrCode link="office-culture.surge.sh" />
+
           <p>{hostName()} will greet you when they have a moment.</p>
           <p>Please make yourself at home at Hot Desk: {hotdeskName()}</p>
 
@@ -131,6 +133,7 @@ const CheckinDetail = (props) => {
             <a href={`/business/${props.match.params.bId}/notify`}>link</a>.
           </p>
         </Card>
+
         <Button
           variant="light"
           href={`/${props.match.params.bId}/checkin`}

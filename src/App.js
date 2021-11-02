@@ -13,6 +13,7 @@ import CheckinDetail from "./components/pages/CheckinDetail";
 import Notify from "./components/pages/Notify";
 import Footer from "./components/Footer";
 import Default from "./components/pages/Default";
+import CheckinQr from "./components/pages/CheckinQr";
 
 function App() {
   return (
@@ -39,6 +40,11 @@ function App() {
           exact
           path="/:id/checkin"
           render={(routerProps) => <Checkin {...routerProps} />}
+        />
+        <Route
+          exact
+          path="/:bId/checkinQr/:eId/:gId"
+          render={(routerProps) => <CheckinQr {...routerProps} />}
         />
         <Route
           exact

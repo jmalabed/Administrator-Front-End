@@ -3,6 +3,7 @@ import React from "react";
 import CheckedIn from "../CheckedIn";
 import ReactDOM from "react-dom";
 import CheckinDetail from "./CheckinDetail";
+import CheckinQr from "./CheckinQr";
 import { Form, Button, FloatingLabel, Row, Col } from "react-bootstrap";
 
 const Checkin = (props) => {
@@ -73,7 +74,7 @@ const Checkin = (props) => {
       setGuest(parsedGuest);
       if (parsedGuest._id) {
         props.history.push(
-          `/${parsedGuest.business}/checkin/${parsedGuest.visiting}/${parsedGuest._id}`
+          `/${parsedGuest.business}/checkinQr/${parsedGuest.visiting}/${parsedGuest._id}`
         );
       } else {
         alert("Unable to create user. Please try again.");

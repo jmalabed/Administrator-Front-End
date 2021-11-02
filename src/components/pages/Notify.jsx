@@ -107,23 +107,17 @@ const Notify = (props) => {
     <>
       <h1 className="mt-3 mb-5">Notify</h1>
       <Container>
-        <Row>
-          <Col></Col>
-          <Col>
-            <Card className="p-3">
-              <p>
-                A notification will be sent out to all employees and guests that
-                were present within the last 72 hours.
-              </p>
-              <Button className="mt-3" variant="danger" onClick={notifyAll}>
-                Notify
-              </Button>{" "}
-              <br />
-              <a href={`/business/${props.match.params.id}`}>Return</a>
-            </Card>
-          </Col>
-          <Col></Col>
-        </Row>
+        <Card className="p-3">
+          <p>
+            A notification will be sent out to all employees and guests that
+            were present within the last 72 hours.
+          </p>
+          <Button className="mt-3" variant="danger" onClick={notifyAll()}>
+            Notify
+          </Button>{" "}
+          <br />
+          <a href={`/business/${props.match.params.id}`}>Return</a>
+        </Card>
       </Container>
     </>
   );
