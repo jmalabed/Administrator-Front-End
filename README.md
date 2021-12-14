@@ -55,12 +55,12 @@ office-culture.surge.sh
 
 ### Wireframes
 
-![Image of Wireframes](url)
-[Link to full wireframe] (whimsical url)
+![Image of Wireframes](https://github.com/jmalabed/Administrator-Front-End/blob/main/img/administrator-full-wireframes.png?raw=true)
+[Link to full wireframe](https://whimsical.com/covid-tracker-6fwqnmsjsuYbuo55pMUpZY)
 
 ### Entity Relationship Diagram
 
-![Image of ERD](linktoerd)
+![Image of ERD](https://github.com/jmalabed/Administrator-Front-End/blob/main/img/administrator-ERD.png?raw=true)
 
 ## Future Work
 
