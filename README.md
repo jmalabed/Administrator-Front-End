@@ -7,7 +7,8 @@
 - Front End: https://github.com/jmalabed/ga-capstone-fe
 - Back End: https://github.com/jmalabed/ga-capstone-be
 
-###Summary
+### Summary
+
 The Administrator is an office guest management and hotdesk administration software that is designed to integrate COVID precautionary protocol in a transparent and anonymous way.
 
 When visiting an office, you are likely going in to meet people at the office rather than work in isolation. Because the work environment is so fluid since COVID-19, hotdesking has become more common. A typical visit to the office by a guest or employee looks like this:
@@ -19,10 +20,6 @@ Next, you will migrate to an available (and clean) desk that you can work from. 
 You attend your meeting, and then head home before work traffic picks up in the afternoon.
 
 The Administrator handles all of this typical administrative functionality, but also integrates COVID-19 notifications to people that were present in the building at the same time as the reported person was.
-
-### Index
-
-- [Heading Name](#heading-name)
 
 ### Technologies
 
